@@ -1,0 +1,11 @@
+nodemon: Permite resfrescar servidor automaticamente  
+route: 
+rest: coneion front-back
+
+Software a usar:
+    - Visual estudiso code
+    - https://nodejs.org/es/
+    -  https://dev.mysql.com/downloads/workbench/
+    - https://www.apachefriends.org/es/index.html
+
+    - npm install morgan => Pretty code
