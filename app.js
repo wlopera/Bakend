@@ -3,6 +3,10 @@ const app = express()
 const morgan = require('morgan')
 const productoRoute = require('./routes/producto')
 
+// Manejo de archivo properties
+const PropertiesReader = require('properties-reader');
+const prop = PropertiesReader('config.properties');
+
 var bodyParser = require("body-parser");
 var cors = require("cors");
 
@@ -19,7 +23,6 @@ app.use(productoRoute);
 
 //app.use(morgan('combined'))
 
-
-app.listen(3005, () => {
-    console.log("Servidor levantado en 3003...")
+app.listen(prop.get('server.port'), () => {
+    console.log(prop.get('server.message'))
 })
