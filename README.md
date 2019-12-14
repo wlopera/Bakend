@@ -6,7 +6,7 @@ Proyecto CRUD tabla de prodcutos. Realizado con  NodeJS - Express
 
 ![Captura 1](https://user-images.githubusercontent.com/7141537/70851138-8298cd80-1e5f-11ea-815f-acd88c027300.PNG)
 
-## Salida del programa
+## Salida del programa - pruebas
 
 ## Ejemplos de consulta de todos los productos: localhost:3005/product
 
@@ -25,7 +25,8 @@ Proyecto CRUD tabla de prodcutos. Realizado con  NodeJS - Express
 ![Captura 6](https://user-images.githubusercontent.com/7141537/70851136-8298cd80-1e5f-11ea-99e4-980b227925ab.PNG)
 
 ![Captura 7](https://user-images.githubusercontent.com/7141537/70851137-8298cd80-1e5f-11ea-9d6f-a22f23964ee5.PNG)
-nota: El mensaje seria en caso de error
+
+NOTA: El mensaje seria en caso de error
 
 ### En construcción 
 
