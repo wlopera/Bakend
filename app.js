@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
-const productoRoute = require('./routes/producto')
+const productRoute = require('./routes/product')
+const companyRoute = require('./routes/company')
 
 // Manejo de archivo properties
 const PropertiesReader = require('properties-reader');
@@ -19,9 +20,11 @@ app.use(bodyParser.json());
 // Settings Cors 
 app.use(cors());
 
-app.use(productoRoute);
+// Agregar repo - productos
+app.use(productRoute);
 
-//app.use(morgan('combined'))
+// Agregar repo - empress
+app.use(companyRoute);
 
 app.listen(prop.get('server.port'), () => {
     console.log(prop.get('server.message'))

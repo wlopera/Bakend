@@ -1,5 +1,4 @@
 const express = require('express')
-const router = express.Router();
 const mysql = require('mysql')
 
 // Manejo de archivo properties
@@ -16,60 +15,17 @@ function getConnection() {
         database: prop.get('mysql.database')
     });
 }
-
 /**
- * Consulta de todos los productos
- */
-router.get('/product', (req, res) => {
-    processGet(req, res, prop.get('query.get.product'), undefined);
-});
-
-/**
- * Vonsulta de producto por identificador
- */
-router.get('/product/:id', (req, res) => {
-    const { id } = req.params
-    processGet(req, res, prop.get('query.get.product.by.id'), [id]);
-
-});
-
-/**
- * Borrado de producto
- */
-router.delete('/product/:id', (req, res) => {
-    const { id } = req.params;
-    processQuery(req, res, prop.get('query.delete.product'), [id], prop.get('message.error.delete.product'));
-});
-
-/**
- * Agregar nuevo producto
- */
-router.post('/product', (req, res) => {
-    const { codigo, nombre, precio } = req.body;
-    processQuery(req, res, prop.get('query.post.product'), [codigo, nombre, precio], prop.get('message.error.post.product'));
-});
-
-/**
- * Actualizacion de datos de un producto
- */
-router.put('/product/:id', (req, res) => {
-    const { id } = req.params;
-    const { codigo, nombre, precio } = req.body;
-
-    processQuery(req, res, prop.get('query.put.product'), [codigo, nombre, precio, id], prop.get('message.error.put.product'));
-});
-
-/**
- * Permite la consulta de productos 
+ * Permite la consulta de empresa 
  * 
  * @param req Peticion realizada 
  * @param res Respuesta a la peticion 
  * @param query Query de consulta 
  * @param params parametros requeridos por la consulta 
  */
-function processGet(req, res, query, params) {
+exports.processGet = function(req, res, query, params) {
 
-    console.log("----- Consulta de Producto(s) -------- ")
+    console.log("----- Consulta de Empresa(s) -------- ")
     console.log("query: " + query)
     console.log("params: " + params)
     console.log("-------------------------------------- ")
@@ -81,7 +37,7 @@ function processGet(req, res, query, params) {
 }
 
 /**
- * Permite agregar, modificar o borrar  un producto 
+ * Permite agregar, modificar o borrar  una empresa 
  * 
  * @param req Peticion realizada 
  * @param res Respuesta a la peticion 
@@ -89,9 +45,9 @@ function processGet(req, res, query, params) {
  * @param params parametros requeridos por la consulta 
  * @param mesage Mensaje en caso de error
  */
-function processQuery(req, res, query, params, message) {
+exports.processQuery = function(req, res, query, params, message) {
 
-    console.log("----- Agrear/Modificar/Borrar Producto -------- ")
+    console.log("----- Agrear/Modificar/Borrar Empresa -------- ")
     console.log("query: " + query)
     console.log("params: " + params)
     console.log("message-error: " + message)
@@ -113,5 +69,3 @@ function processQuery(req, res, query, params, message) {
 
     })
 }
-
-module.exports = router;
